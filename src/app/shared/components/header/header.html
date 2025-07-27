@@ -17,8 +17,8 @@
   <!-- desktop navigation -->
   <div class="flex-none hidden lg:block">
     <ul class="menu menu-horizontal px-1 space-x-1">
-      <li><a class="rounded-btn hover:bg-primary/10 hover:text-primary focus:bg-primary/20 active:bg-primary/30 transition-all duration-300 border border-transparent hover:border-primary/10">{{ navHome }}</a></li>
-      <li><a class="rounded-btn hover:bg-primary/10 hover:text-primary focus:bg-primary/20 active:bg-primary/30 transition-all duration-300 border border-transparent hover:border-primary/10">{{ navVlogs }}</a></li>
+      <li><a [href]="navHomeLink" class="rounded-btn hover:bg-primary/10 hover:text-primary focus:bg-primary/20 active:bg-primary/30 transition-all duration-300 border border-transparent hover:border-primary/10">{{ navHome }}</a></li>
+      <li><a [href]="navVlogLink" class="rounded-btn hover:bg-primary/10 hover:text-primary focus:bg-primary/20 active:bg-primary/30 transition-all duration-300 border border-transparent hover:border-primary/10">{{ navVlogs }}</a></li>
     </ul>
   </div>
 
@@ -68,8 +68,8 @@
           </svg>
         </label>
       </li>
-      <li><a class="text-lg py-3 rounded-btn hover:bg-primary/10 hover:text-primary transition-all duration-300 border border-transparent hover:border-primary/10">{{ navHome }}</a></li>
-      <li><a class="text-lg py-3 rounded-btn hover:bg-primary/10 hover:text-primary transition-all duration-300 border border-transparent hover:border-primary/10">{{ navVlogs }}</a></li>
+      <li><a [href]="navHomeLink" class="text-lg py-3 rounded-btn hover:bg-primary/10 hover:text-primary transition-all duration-300 border border-transparent hover:border-primary/10">{{ navHome }}</a></li>
+      <li><a [href]="navVlogLink" class="text-lg py-3 rounded-btn hover:bg-primary/10 hover:text-primary transition-all duration-300 border border-transparent hover:border-primary/10">{{ navVlogs }}</a></li>
     </ul>
   </div>
 </div>

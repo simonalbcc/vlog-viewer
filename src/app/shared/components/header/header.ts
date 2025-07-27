@@ -15,6 +15,8 @@ export class Header {
   navVlogs = 'Vlogs';
   lightModeTitle = 'Mode clair';
   darkModeTitle = 'Mode sombre';
+  navHomeLink = '/accueil';
+  navVlogLink = '/vlogs';
 
   toggleTheme(): void {
     this.darkModeService.toggleTheme();
