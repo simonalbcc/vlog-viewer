@@ -1,10 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-interface Member {
-  id: number;
-  name: string;
-  photo: string;
-}
+import { Member } from '../../../core/models/member';
 
 @Component({
   selector: 'vlog-viewer-member-avatar',
