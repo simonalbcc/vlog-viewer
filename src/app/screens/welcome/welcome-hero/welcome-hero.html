@@ -1,24 +1,28 @@
-<section class="relative min-h-[80vh] bg-gradient-to-br from-primary/10 to-secondary/10">
-  <div class="absolute inset-0 opacity-5 bg-[url('https://ghouse-tv.com/pattern.svg')]"></div>
+<section class="relative min-h-[80vh] bg-gradient-to-br from-primary/10 to-secondary/10 overflow-hidden">
+  <div class="absolute inset-0 opacity-5 bg-[url('https://ghouse-tv.com/pattern.svg')] bg-center bg-repeat"></div>
 
-  <div class="container mx-auto px-6 py-24 flex items-center">
+  <div class="container mx-auto px-6 py-24 flex items-center h-full">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">
-          Bienvenue sur <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">GHouseTV</span>
+      <div class="relative z-10">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight transition-all duration-300">
+          {{ title }}
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary transition-all duration-500">
+            {{ titleHighlight }}
+          </span>
         </h1>
-        <p class="text-lg mb-8 text-gray-700">
-          Découvrez nos aventures, nos découvertes et les moments inédits de notre bande d'amis.
-        </p>
+
         <div class="flex flex-wrap gap-4">
-          <button class="btn btn-primary px-8 rounded-full animate-bounce hover:animate-none">
-            Voir le dernier épisode
-          </button>
-          <button class="btn btn-outline btn-secondary px-8 rounded-full border-2">
-            Qui sommes-nous ?
+          <button class="btn btn-primary px-8 rounded-full hover:scale-105 active:scale-95 transform-gpu transition-transform duration-300 shadow-lg hover:shadow-primary/30">
+            {{ primaryButton }}
           </button>
         </div>
       </div>
+
+      <div class="hidden lg:block relative">
+        <div class="w-full h-96 bg-primary/10 rounded-xl backdrop-blur-sm border border-primary/20"></div>
+      </div>
     </div>
   </div>
+
+  <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-base-100 to-transparent"></div>
 </section>

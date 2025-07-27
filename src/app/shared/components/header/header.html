@@ -1,44 +1,75 @@
 <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
-  <!-- Mobile menu button (hidden on desktop) -->
+  <!-- mobile menu button -->
   <div class="flex-none lg:hidden">
-    <label for="mobile-menu" class="btn btn-square btn-ghost">
+    <label for="mobile-menu" class="btn btn-square btn-ghost hover:bg-base-200/50 active:bg-base-200/70 transition-all">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </label>
   </div>
 
-  <!-- Logo/Brand -->
   <div class="flex-1">
-    <a class="btn btn-ghost text-xl transition-transform hover:scale-105 active:scale-95">
-      GamingHouseTV
+    <a class="btn btn-ghost text-xl hover:scale-105 active:scale-95 transform-gpu transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">{{ siteTitle }}</span>
     </a>
   </div>
 
-  <!-- Desktop Navigation (hidden on mobile) -->
+  <!-- desktop navigation -->
   <div class="flex-none hidden lg:block">
-    <ul class="menu menu-horizontal px-1 space-x-2">
-      <li><a class="rounded-btn hover:bg-primary hover:text-primary-content transition-colors duration-200">Accueil</a></li>
-      <li><a class="rounded-btn hover:bg-primary hover:text-primary-content transition-colors duration-200">Vlogs</a></li>
-      <li><a class="rounded-btn hover:bg-primary hover:text-primary-content transition-colors duration-200">À propos</a></li>
+    <ul class="menu menu-horizontal px-1 space-x-1">
+      <li><a class="rounded-btn hover:bg-primary/10 hover:text-primary focus:bg-primary/20 active:bg-primary/30 transition-all duration-300 border border-transparent hover:border-primary/10">{{ navHome }}</a></li>
+      <li><a class="rounded-btn hover:bg-primary/10 hover:text-primary focus:bg-primary/20 active:bg-primary/30 transition-all duration-300 border border-transparent hover:border-primary/10">{{ navVlogs }}</a></li>
     </ul>
   </div>
 
-  <!-- Mobile Navigation (drawer) -->
+  <div class="flex-none ml-2">
+    <button
+      class="btn btn-circle btn-ghost group relative overflow-hidden w-6 h-6"
+      type="button"
+      (click)="toggleTheme()"
+      [title]="darkModeService.isDark() ? lightModeTitle : darkModeTitle"
+      aria-label="toggle theme"
+    >
+
+      @if (darkModeService.isDark()) {
+        <!-- sun icon -->
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="h-4 w-4 absolute transition-all duration-500 ease-out-back"
+             :class="darkModeService.isDark() ? 'opacity-40 scale-90' : 'opacity-100 scale-110'"
+             fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+        </svg>
+      } @else {
+        <!-- moon icon -->
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="h-4 w-4 absolute transition-all duration-500 ease-out-back"
+             :class="darkModeService.isDark() ? 'opacity-100 scale-110 rotate-[15deg]' : 'opacity-40 scale-90'"
+             fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+        </svg>
+      }
+
+      <span class="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+    </button>
+  </div>
+
+
+  <!-- mobile navigation  -->
   <input type="checkbox" id="mobile-menu" class="drawer-toggle" />
   <div class="drawer-side z-50">
     <label for="mobile-menu" class="drawer-overlay"></label>
-    <ul class="menu p-4 w-80 h-full bg-base-200 text-base-content">
+    <ul class="menu p-4 w-80 h-full bg-base-200/95 backdrop-blur-sm text-base-content space-y-1">
       <li class="mb-4">
-        <label for="mobile-menu" class="btn btn-ghost btn-circle absolute right-2 top-2">
+        <label for="mobile-menu" class="btn btn-ghost btn-circle absolute right-2 top-2 hover:bg-base-300/50 transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </label>
       </li>
-      <li><a class="text-lg py-3 active:bg-primary active:text-primary-content">Accueil</a></li>
-      <li><a class="text-lg py-3 active:bg-primary active:text-primary-content">Vlogs</a></li>
-      <li><a class="text-lg py-3 active:bg-primary active:text-primary-content">À propos</a></li>
+      <li><a class="text-lg py-3 rounded-btn hover:bg-primary/10 hover:text-primary transition-all duration-300 border border-transparent hover:border-primary/10">{{ navHome }}</a></li>
+      <li><a class="text-lg py-3 rounded-btn hover:bg-primary/10 hover:text-primary transition-all duration-300 border border-transparent hover:border-primary/10">{{ navVlogs }}</a></li>
     </ul>
   </div>
 </div>
