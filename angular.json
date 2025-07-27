@@ -8,7 +8,7 @@
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "vlog-viewer",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
